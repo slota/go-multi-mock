@@ -17,7 +17,7 @@ func (r *Responses) removeFirstElement() {
 	*r = newResponses
 }
 
-func StartMockBarometer(responses Responses) *httptest.Server {
+func StartMultiMock(responses Responses) *httptest.Server {
 	return httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
 		response := responses[0].Status
 		body := responses[0].Body
