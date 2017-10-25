@@ -11,16 +11,16 @@ This test is meant to be used for testing and would be utilized as follows..
       
       var _ = Describe("GoMultiMock", func() {
 	      It("Returns not found when wrong person is found", func() {
-			response1 := helpers.MockResponse{
+			response1 := MockResponse{
 				Status: http.StatusOK,
 				Body:   mock_json.WrongPersonFoundResponse,
 			}
-			response2 := helpers.MockResponse{
+			response2 := MockResponse{
 				Status: http.StatusOK,
 				Body:   mock_json.OtherWrongPersonResponse,
 			}
 
-			responses := helpers.Responses{&response1, &response2}
+			responses := Responses{&response1, &response2}
 			server := StartMultiMock(responses)
 			os.Setenv("YOUR_URL", server.URL)
 
